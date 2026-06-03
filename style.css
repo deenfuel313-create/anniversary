@@ -131,91 +131,143 @@ body, html {
 .right-align { justify-content: flex-end; }
 
 /* Image Framing Architecture */
+/* ==========================================================================
+   THE PERFECT-FIT GALLERY ARCHITECTURE (Lines 134 to End)
+   ========================================================================== */
+
+/* The Layout Row Framework */
+.showcase-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 120px;
+    position: relative;
+    width: 100%;
+}
+
+.left-align { flex-direction: row; }
+.right-align { flex-direction: row-reverse; }
+
+/* The Perfect-Fit Image Frame */
 .image-frame-lux {
     position: relative;
-    width: 35%;
-    height: 380px;
+    width: 48%;          /* Perfectly balances half the screen on laptops */
+    height: 480px;        /* Golden ratio height for beautiful vertical & horizontal photos */
     overflow: hidden;
-    border-radius: 12px;
-    background-color: rgba(10, 8, 15, 0.6
-                           0;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    border-radius: 20px;
+    background: radial-gradient(circle, rgba(20, 16, 32, 0.6) 0%, rgba(8, 6, 12, 0.9) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* The Zero-Zoom Clear Image Engine */
 .image-frame-lux img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 10px;
-    filter: brightness(0.9) contrast(1.02);
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s;
+    max-width: 94%;      /* Elegant luxury border gap so photos look matted */
+    max-height: 94%;
+    width: auto;         /* Forces the image to maintain its exact real proportions */
+    height: auto;        /* Absolutely zero stretching, zero squeezing, zero zoom */
+    object-fit: contain; /* Guarantees the entire photo is completely visible and razor-sharp */
+    border-radius: 8px;
+    filter: brightness(0.92) contrast(1.02);
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Decorative Gold Frame Border Overlays */
 .frame-border-overlay {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    border: 1px solid rgba(212, 175, 55, 0.25);
+    top: 3%;
+    left: 3%;
+    right: 3%;
+    bottom: 3%;
+    border: 1px solid rgba(212, 175, 55, 0.15);
     pointer-events: none;
-    border-radius: 8px;
-    transition: border-color 0.5s;
+    border-radius: 12px;
+    transition: all 0.6s ease;
 }
 
-/* Hover Engine */
+/* Hover Dynamics */
 .showcase-row:hover .image-frame-lux img {
-    transform: scale(1.06);
-    filter: brightness(0.95) contrast(1);
+    transform: scale(1.03);
+    filter: brightness(1) contrast(1.02);
 }
 
 .showcase-row:hover .frame-border-overlay {
-    border-color: rgba(212, 175, 55, 0.7);
+    border-color: rgba(212, 175, 55, 0.6);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
 }
 
-/* Text Floating Plates */
+/* Elegant Text Plates */
 .text-plate-lux {
-    position: absolute;
-    width: 38%;
-    background: rgba(13, 11, 20, 0.65);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    padding: 50px;
+    position: relative;
+    width: 44%;          /* Takes up the remaining side of the screen perfectly */
+    background: rgba(13, 11, 20, 0.5);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px;
     border-radius: 20px;
-    box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
     z-index: 3;
 }
 
-.left-align .text-plate-lux { right: 8%; }
-.right-align .text-plate-lux { left: 8%; }
+/* ==========================================================================
+   MASTER MOBILE RE-ARCHITECT ENGINE (Laptop vs Phone Split)
+   ========================================================================== */
 
-.chapter-num {
-    font-size: 0.8rem;
-    font-weight: 400;
-    color: #d4af37;
-    letter-spacing: 3px;
+@media (max-width: 968px) {
+    #luxury-container {
+        padding: 0 6%;
+    }
+
+    .hero-glass-plate {
+        padding: 40px 30px;
+        border-radius: 20px;
+    }
+
+    .editorial-title {
+        font-size: 2.8rem;
+    }
+
+    /* Stack row components neatly on top of each other on mobile phones */
+    .showcase-row {
+        flex-direction: column !important; 
+        margin-bottom: 80px;
+        gap: 20px;
+    }
+
+    /* Transform the layout frame to completely fit phone screens beautifully */
+    .image-frame-lux {
+        width: 100% !important; 
+        height: 360px !important; /* Perfect phone landscape height box */
+        border-radius: 16px;
+    }
+
+    .image-frame-lux img {
+        max-width: 96%;
+        max-height: 96%;
+    }
+
+    /* Expand text plates to span perfectly across phone screens */
+    .text-plate-lux {
+        width: 100% !important;
+        padding: 30px 20px;
+        border-radius: 16px;
+        text-align: center;
+    }
+    
+    .text-plate-lux h2 {
+        font-size: 1.8rem;
+    }
 }
 
-.text-plate-lux h2 {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 2.2rem;
-    margin: 15px 0;
-    font-weight: 400;
-}
-
-.story-paragraph {
-    font-size: 1rem;
-    line-height: 1.8;
-    opacity: 0.7;
-    font-weight: 300;
-}
-
-/* Footer Section */
+/* Luxury Footer Design Adjustment */
 .luxury-footer {
     display: flex;
     justify-content: center;
-    padding-bottom: 150px;
+    padding: 60px 0 100px 0;
 }
 
 .footer-glass-plate {
@@ -223,17 +275,16 @@ body, html {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 80px;
-    border-radius: 24px;
+    padding: 40px;
+    border-radius: 20px;
     text-align: center;
     width: 100%;
-    max-width: 800px;
 }
 
 .footer-title {
     font-family: 'Cinzel Decorative', serif;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 15px;
     background: linear-gradient(135deg, #ffffff, #d4af37);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -241,19 +292,12 @@ body, html {
 
 .footer-dates {
     letter-spacing: 4px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     opacity: 0.5;
     text-transform: uppercase;
 }
 
 @keyframes scaleLine {
     0%, 100% { transform: scaleX(1); opacity: 0.6; }
-    50% { transform: scaleX(1.5); opacity: 1; }
-}
-
-@media (max-width: 968px) {
-    .showcase-row { flex-direction: column; margin-bottom: 100px; }
-    .image-frame-lux { width: 100%; height: 380px; }
-    .text-plate-lux { position: relative; width: 100%; top: -40px; left: 0 !important; right: 0 !important; padding: 30px; }
-    .editorial-title { font-size: 3rem; }
+    50% { transform: scaleX(1.4); opacity: 1; }
 }
