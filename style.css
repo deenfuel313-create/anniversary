@@ -1,0 +1,256 @@
+/* Core Styling Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #030205; /* Deep luxury noir canvas background */
+    font-family: 'Inter', sans-serif;
+    color: #fcfbfe;
+    scroll-behavior: smooth;
+}
+
+/* Cinematic WebGL Backdrop */
+#webgl-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Layout Framework */
+#luxury-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0 4%;
+}
+
+/* Premium Glassmorphic Plate */
+.hero-glass-plate {
+    background: rgba(10, 8, 15, 0.35);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 80px 60px;
+    border-radius: 32px;
+    max-width: 850px;
+    width: 100%;
+    text-align: left;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+}
+
+.hero-editorial {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 5%;
+}
+
+.gold-accent-tag {
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #d4af37; /* Clean Champagne Gold */
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.editorial-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    background: linear-gradient(180deg, #ffffff 40%, #b8a2e6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.thin-serif {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-style: italic;
+    letter-spacing: -2px;
+}
+
+.editorial-monologue {
+    font-size: 1.1rem;
+    font-weight: 200;
+    line-height: 1.8;
+    max-width: 550px;
+    opacity: 0.75;
+}
+
+.luxury-scroll-indicator {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.luxury-scroll-indicator .line {
+    width: 40px;
+    height: 1px;
+    background: #d4af37;
+    display: inline-block;
+    animation: scaleLine 2s infinite ease-in-out;
+    transform-origin: left;
+}
+
+.luxury-scroll-indicator .txt {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.5;
+}
+
+/* Alternate High-Fashion Rows */
+.editorial-timeline {
+    padding: 100px 0;
+}
+
+.showcase-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 180px;
+    position: relative;
+    width: 100%;
+}
+
+.left-align { justify-content: flex-start; }
+.right-align { justify-content: flex-end; }
+
+/* Image Framing Architecture */
+.image-frame-lux {
+    position: relative;
+    width: 55%;
+    height: 550px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 50px 90px rgba(0,0,0,0.7);
+}
+
+.image-frame-lux img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8) contrast(1.05);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s;
+}
+
+.frame-border-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    pointer-events: none;
+    border-radius: 8px;
+    transition: border-color 0.5s;
+}
+
+/* Hover Engine */
+.showcase-row:hover .image-frame-lux img {
+    transform: scale(1.06);
+    filter: brightness(0.95) contrast(1);
+}
+
+.showcase-row:hover .frame-border-overlay {
+    border-color: rgba(212, 175, 55, 0.7);
+}
+
+/* Text Floating Plates */
+.text-plate-lux {
+    position: absolute;
+    width: 38%;
+    background: rgba(13, 11, 20, 0.65);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.5);
+    z-index: 3;
+}
+
+.left-align .text-plate-lux { right: 8%; }
+.right-align .text-plate-lux { left: 8%; }
+
+.chapter-num {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #d4af37;
+    letter-spacing: 3px;
+}
+
+.text-plate-lux h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.2rem;
+    margin: 15px 0;
+    font-weight: 400;
+}
+
+.story-paragraph {
+    font-size: 1rem;
+    line-height: 1.8;
+    opacity: 0.7;
+    font-weight: 300;
+}
+
+/* Footer Section */
+.luxury-footer {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 150px;
+}
+
+.footer-glass-plate {
+    background: rgba(10, 8, 15, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 80px;
+    border-radius: 24px;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+.footer-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ffffff, #d4af37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-dates {
+    letter-spacing: 4px;
+    font-size: 0.9rem;
+    opacity: 0.5;
+    text-transform: uppercase;
+}
+
+@keyframes scaleLine {
+    0%, 100% { transform: scaleX(1); opacity: 0.6; }
+    50% { transform: scaleX(1.5); opacity: 1; }
+}
+
+@media (max-width: 968px) {
+    .showcase-row { flex-direction: column; margin-bottom: 100px; }
+    .image-frame-lux { width: 100%; height: 380px; }
+    .text-plate-lux { position: relative; width: 100%; top: -40px; left: 0 !important; right: 0 !important; padding: 30px; }
+    .editorial-title { font-size: 3rem; }
+}
