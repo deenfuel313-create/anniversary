@@ -278,3 +278,116 @@ body, html {
     0%, 100% { transform: scaleX(1); opacity: 0.6; }
     50% { transform: scaleX(1.4); opacity: 1; }
 }
+/* ==========================================================================
+   7. ROMANTIC LETTERS & MESSAGES STYLING
+   ========================================================================== */
+#love-letters-section {
+    padding: 60px 0;
+    margin-bottom: 100px;
+    position: relative;
+    z-index: 2;
+}
+
+.section-header-lux {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.letter-section-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.8rem;
+    background: linear-gradient(135deg, #ffffff, #d4af37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.letter-section-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #aaaaaa;
+    letter-spacing: 2px;
+}
+
+.letters-grid-lux {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    width: 100%;
+}
+
+.letter-card-lux {
+    position: relative;
+    width: 32%;
+    background: rgba(13, 11, 20, 0.4);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 35px 30px;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.letter-card-lux h3 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.letter-card-lux p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: #cccccc;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.letter-date {
+    font-size: 0.75rem;
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+}
+
+.card-border-overlay {
+    position: absolute;
+    top: 4%; left: 4%; right: 4%; bottom: 4%;
+    border: 1px solid rgba(212, 175, 55, 0.08);
+    pointer-events: none;
+    border-radius: 14px;
+    transition: all 0.6s ease;
+}
+
+.letter-card-lux:hover {
+    transform: translateY(-10px);
+    background: rgba(20, 16, 32, 0.55);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+}
+
+.letter-card-lux:hover .card-border-overlay {
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.05);
+}
+
+@media (max-width: 968px) {
+    .letters-grid-lux {
+        flex-direction: column !important;
+        gap: 30px;
+    }
+    
+    .letter-card-lux {
+        width: 100% !important;
+        padding: 30px 25px;
+    }
+    
+    .letter-section-title {
+        font-size: 2.2rem;
+    }
+}
+
+
