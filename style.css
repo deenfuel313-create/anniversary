@@ -1,4 +1,6 @@
-/* Core Styling Setup */
+/* ==========================================================================
+   1. CORE GLOBAL STYLING SETUP
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -8,13 +10,15 @@
 body, html {
     width: 100%;
     overflow-x: hidden;
-    background-color: #030205; /* Deep luxury noir canvas background */
+    background-color: #08060c; /* Deep luxury noir canvas background */
     font-family: 'Inter', sans-serif;
-    color: #fcfbfe;
+    color: #f0f0f2;
     scroll-behavior: smooth;
 }
 
-/* Cinematic WebGL Backdrop */
+/* ==========================================================================
+   2. CINEMATIC 3D WEBGL BACKDROP
+   ========================================================================== */
 #webgl-canvas {
     position: fixed;
     top: 0;
@@ -25,122 +29,75 @@ body, html {
     pointer-events: none;
 }
 
-/* Layout Framework */
+/* ==========================================================================
+   3. LUXURY EDITORIAL FOREGROUND LAYOUT
+   ========================================================================== */
 #luxury-container {
     position: relative;
-    z-index: 2;
     width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
     padding: 0 4%;
+    z-index: 2;
 }
 
-/* Premium Glassmorphic Plate */
+/* Header Plate Styling */
+.hero-header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .hero-glass-plate {
-    background: rgba(10, 8, 15, 0.35);
+    background: rgba(13, 11, 20, 0.45);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 80px 60px;
-    border-radius: 32px;
-    max-width: 850px;
-    width: 100%;
-    text-align: left;
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
-}
-
-.hero-editorial {
-    height: 100vh;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 5%;
-}
-
-.gold-accent-tag {
-    font-size: 0.8rem;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: #d4af37; /* Clean Champagne Gold */
-    font-weight: 500;
-    display: inline-block;
-    margin-bottom: 15px;
+    padding: 60px 80px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
 }
 
 .editorial-title {
     font-family: 'Cinzel Decorative', serif;
     font-size: 4.5rem;
     font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 25px;
-    background: linear-gradient(180deg, #ffffff 40%, #b8a2e6 100%);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #ffffff 30%, #d4af37 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.thin-serif {
+.editorial-subtitle {
     font-family: 'Inter', sans-serif;
-    font-weight: 200;
-    font-style: italic;
-    letter-spacing: -2px;
+    font-weight: 300;
+    letter-spacing: 8px;
+    font-size: 0.95rem;
+    color: #d4af37;
+    text-transform: uppercase;
 }
 
-.editorial-monologue {
-    font-size: 1.1rem;
-    font-weight: 200;
-    line-height: 1.8;
-    max-width: 550px;
-    opacity: 0.75;
-}
-
-.luxury-scroll-indicator {
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.luxury-scroll-indicator .line {
-    width: 40px;
+.luxury-divider {
+    width: 60px;
     height: 1px;
     background: #d4af37;
-    display: inline-block;
-    animation: scaleLine 2s infinite ease-in-out;
-    transform-origin: left;
+    margin: 30px auto 0 auto;
+    animation: scaleLine 4s infinite ease-in-out;
 }
 
-.luxury-scroll-indicator .txt {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    opacity: 0.5;
-}
-
-/* Alternate High-Fashion Rows */
-.editorial-timeline {
-    padding: 100px 0;
-}
-
-.showcase-row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 180px;
-    position: relative;
-    width: 100%;
-}
-
-.left-align { justify-content: flex-start; }
-.right-align { justify-content: flex-end; }
-
-/* Image Framing Architecture */
 /* ==========================================================================
-   THE PERFECT-FIT GALLERY ARCHITECTURE (Lines 134 to End)
+   4. THE PERFECT-FIT GALLERY ARCHITECTURE
    ========================================================================== */
 
-/* The Layout Row Framework */
+/* Layout Row Grid Framework */
 .showcase-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 120px;
+    margin-bottom: 140px;
     position: relative;
     width: 100%;
 }
@@ -148,11 +105,11 @@ body, html {
 .left-align { flex-direction: row; }
 .right-align { flex-direction: row-reverse; }
 
-/* The Perfect-Fit Image Frame */
+/* The Perfect-Fit Luxury Image Frame */
 .image-frame-lux {
     position: relative;
-    width: 48%;          /* Perfectly balances half the screen on laptops */
-    height: 480px;        /* Golden ratio height for beautiful vertical & horizontal photos */
+    width: 48%;          /* Balances exactly half the screen width on laptops */
+    height: 480px;        /* Golden box height for vertical & horizontal landscape photos */
     overflow: hidden;
     border-radius: 20px;
     background: radial-gradient(circle, rgba(20, 16, 32, 0.6) 0%, rgba(8, 6, 12, 0.9) 100%);
@@ -163,19 +120,19 @@ body, html {
     justify-content: center;
 }
 
-/* The Zero-Zoom Clear Image Engine */
+/* The Zero-Zoom Clear Fit Image Engine */
 .image-frame-lux img {
-    max-width: 94%;      /* Elegant luxury border gap so photos look matted */
+    max-width: 94%;      /* Elegant inner border cushion gap so photos look neatly matted */
     max-height: 94%;
-    width: auto;         /* Forces the image to maintain its exact real proportions */
-    height: auto;        /* Absolutely zero stretching, zero squeezing, zero zoom */
-    object-fit: contain; /* Guarantees the entire photo is completely visible and razor-sharp */
+    width: auto;         /* Forces the picture to maintain its exact natural dimensions */
+    height: auto;        /* Absolutely zero stretching, vertical squeezing, or crop zoom */
+    object-fit: contain; /* Guarantees the full photo is visible, crisp, and razor-sharp */
     border-radius: 8px;
     filter: brightness(0.92) contrast(1.02);
     transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Decorative Gold Frame Border Overlays */
+/* Decorative Framing Lines */
 .frame-border-overlay {
     position: absolute;
     top: 3%;
@@ -188,7 +145,7 @@ body, html {
     transition: all 0.6s ease;
 }
 
-/* Hover Dynamics */
+/* Smooth Interactive Hover Animations */
 .showcase-row:hover .image-frame-lux img {
     transform: scale(1.03);
     filter: brightness(1) contrast(1.02);
@@ -199,10 +156,10 @@ body, html {
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
 }
 
-/* Elegant Text Plates */
+/* Glassmorphism Text Containers */
 .text-plate-lux {
     position: relative;
-    width: 44%;          /* Takes up the remaining side of the screen perfectly */
+    width: 44%;          /* Takes up the remaining side layout beautifully */
     background: rgba(13, 11, 20, 0.5);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
@@ -213,10 +170,25 @@ body, html {
     z-index: 3;
 }
 
-/* ==========================================================================
-   MASTER MOBILE RE-ARCHITECT ENGINE (Laptop vs Phone Split)
-   ========================================================================== */
+.text-plate-lux h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #ffffff, #d4af37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
+.text-plate-lux p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #cccccc;
+    font-weight: 300;
+}
+
+/* ==========================================================================
+   5. MASTER MOBILE RESPONSIBLE RESPONSIVE ENGINE (Laptop vs Mobile Fix)
+   ========================================================================== */
 @media (max-width: 968px) {
     #luxury-container {
         padding: 0 6%;
@@ -231,17 +203,17 @@ body, html {
         font-size: 2.8rem;
     }
 
-    /* Stack row components neatly on top of each other on mobile phones */
+    /* Instantly stack layout components vertically into single rows on phones */
     .showcase-row {
         flex-direction: column !important; 
         margin-bottom: 80px;
         gap: 20px;
     }
 
-    /* Transform the layout frame to completely fit phone screens beautifully */
+    /* Transform the layout frames to scale beautifully to phone widths */
     .image-frame-lux {
         width: 100% !important; 
-        height: 360px !important; /* Perfect phone landscape height box */
+        height: 360px !important; /* Perfect phone display landscape box height */
         border-radius: 16px;
     }
 
@@ -250,7 +222,7 @@ body, html {
         max-height: 96%;
     }
 
-    /* Expand text plates to span perfectly across phone screens */
+    /* Expand text blocks across phone widths cleanly */
     .text-plate-lux {
         width: 100% !important;
         padding: 30px 20px;
@@ -263,11 +235,15 @@ body, html {
     }
 }
 
-/* Luxury Footer Design Adjustment */
+/* ==========================================================================
+   6. PREMIUM CREDIT PLATFORM FOOTER
+   ========================================================================== */
 .luxury-footer {
     display: flex;
     justify-content: center;
     padding: 60px 0 100px 0;
+    position: relative;
+    z-index: 2;
 }
 
 .footer-glass-plate {
@@ -297,6 +273,7 @@ body, html {
     text-transform: uppercase;
 }
 
+/* Subtle Animated Keyframe System */
 @keyframes scaleLine {
     0%, 100% { transform: scaleX(1); opacity: 0.6; }
     50% { transform: scaleX(1.4); opacity: 1; }
