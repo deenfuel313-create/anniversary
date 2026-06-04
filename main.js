@@ -1,68 +1,59 @@
 /**
- * CHAPTER II - ULTRA LUXURY ROMANCE ENGINE SETUP
+ * 3D ROMANCE MASTER ENGINE
+ * Includes: Three.js Constellation, Floating Hearts, 3D Petals, and Twinkle Sparks
  */
 
-// 1. THREE.JS CONSTELLATION ATMOSPHERE
+// 1. THREE.JS STARFIELD ENGINE
 (function initThreeEngine() {
     const canvas = document.getElementById('webgl-canvas');
     if (!canvas) return;
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-    
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(window.devicePixelRatio);
 
-    const starsCount = 180;
-    const geometry = new THREE.BufferGeometry();
-    const positions = new Float32Array(starsCount * 3);
+    const particlesCount = 350;
+    const posArray = new Float32Array(particlesCount * 3);
 
-    for (let i = 0; i < starsCount * 3; i += 3) {
-        positions[i] = (Math.random() - 0.5) * 16;
-        positions[i + 1] = (Math.random() - 0.5) * 16;
-        positions[i + 2] = (Math.random() - 0.5) * 16;
+    for(let i=0; i < particlesCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 12;
     }
 
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
 
     const material = new THREE.PointsMaterial({
-        size: 0.045,
-        color: 0xff758f, // Matching deep pink soft stellar environment
+        size: 0.02,
+        color: 0xff4d6d,
         transparent: true,
-        opacity: 0.35,
+        opacity: 0.5,
         blending: THREE.AdditiveBlending
     });
 
-    const starField = new THREE.Points(geometry, material);
-    scene.add(starField);
+    const starMesh = new THREE.Points(geometry, material);
+    scene.add(starMesh);
 
-    camera.position.z = 5;
-
-    let currentScroll = 0;
-    window.addEventListener('scroll', () => {
-        currentScroll = window.scrollY / window.innerHeight;
-    }, { passive: true });
+    camera.position.z = 3;
 
     function animate() {
         requestAnimationFrame(animate);
-        starField.rotation.y += 0.0003;
-        starField.rotation.x += 0.0001;
-        starField.position.y = currentScroll * 0.75;
+        starMesh.rotation.y += 0.0005;
+        starMesh.rotation.x += 0.0002;
         renderer.render(scene, camera);
     }
+    animate();
 
     window.addEventListener('resize', () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
-    }, { passive: true });
-
-    animate();
+    });
 })();
 
-
-// 2. VECTOR ENGINE - DYNAMIC GLOWING FLOATING HEARTS & 3D SHADED PETALS
+// 2. ROMANCE ENGINE (HEARTS, PETALS, SPARKS)
 (function initRomanceEngine() {
     const canvas = document.getElementById('romance-canvas');
     if (!canvas) return;
@@ -70,102 +61,106 @@
 
     let particles = [];
     
-    // Premium Vibrant Romantic Color Matrix
-    const heartColors = ['#ff0054', '#ff4d6d', '#ff758f', '#ff85a1']; // Hot pink energy shades
-    const petalColors = ['#ffccd5', '#ffb3c1', '#ffa6c9', '#ffe5ec']; // Elegant soft blooming rose hues
-
-    function resizeCanvas() {
-        canvas.width = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas, { passive: true });
+    resize();
+    window.addEventListener('resize', resize);
 
-    class PremiumParticle {
+    class MultiParticle {
         constructor() {
+            this.reset();
+        }
+
+        reset() {
             this.x = Math.random() * canvas.width;
-            this.y = canvas.height + Math.random() * 80;
-            this.type = Math.random() > 0.5 ? 'heart' : 'flower';
-            this.size = Math.random() * 14 + 10; // Luxury sizing threshold
-            this.speedY = Math.random() * 0.9 + 0.45; // Smooth majestic upward float
-            this.speedX = (Math.random() - 0.5) * 0.3;
-            this.opacity = Math.random() * 0.55 + 0.3;
-            this.wobble = Math.random() * Math.PI * 2;
-            this.wobbleSpeed = Math.random() * 0.02 + 0.012;
+            this.y = canvas.height + 50;
+            this.size = Math.random() * 15 + 8;
+            this.speedY = Math.random() * 0.8 + 0.3;
+            this.speedX = (Math.random() - 0.5) * 0.5;
+            this.opacity = Math.random() * 0.6 + 0.2;
+            this.wobble = 0;
+            this.wobbleIncr = Math.random() * 0.02;
             
-            // Allocate color palettes based on particle properties
-            this.color = this.type === 'heart' 
-                ? heartColors[Math.floor(Math.random() * heartColors.length)]
-                : petalColors[Math.floor(Math.random() * petalColors.length)];
+            // Randomly choose type: 0=Heart, 1=Petal, 2=Spark
+            const r = Math.random();
+            if (r < 0.4) this.type = 'heart';
+            else if (r < 0.8) this.type = 'petal';
+            else this.type = 'spark';
+
+            this.color = this.type === 'heart' ? '#ff0054' : (this.type === 'petal' ? '#ffccd5' : '#ffffff');
         }
 
         update() {
             this.y -= this.speedY;
-            this.wobble += this.wobbleSpeed;
-            this.x += Math.sin(this.wobble) * 0.35 + this.speedX;
-
-            // Graceful out-fade structure as elements flow up past the view boundary
-            if (this.y < canvas.height * 0.2) {
-                this.opacity -= 0.005;
-            }
+            this.wobble += this.wobbleIncr;
+            this.x += Math.sin(this.wobble) * 0.4;
+            
+            if (this.y < -50) this.reset();
         }
 
         draw() {
             ctx.save();
             ctx.globalAlpha = this.opacity;
-            
+            ctx.fillStyle = this.color;
+
             if (this.type === 'heart') {
-                // Vector heart calculations
-                ctx.fillStyle = this.color;
-                ctx.shadowBlur = 15;
-                ctx.shadowColor = this.color; // Hot glowing drop shadow effect!
-                ctx.beginPath();
-                const topY = this.y - this.size / 2;
-                ctx.moveTo(this.x, this.y);
-                ctx.bezierCurveTo(this.x - this.size / 2, topY, this.x - this.size, this.y - this.size / 3, this.x - this.size, this.y);
-                ctx.bezierCurveTo(this.x - this.size, this.y + this.size / 2, this.x - this.size / 3, this.y + this.size * 0.8, this.x, this.y + this.size);
-                ctx.bezierCurveTo(this.x + this.size / 3, this.y + this.size * 0.8, this.x + this.size, this.y + this.size / 2, this.x + this.size, this.y);
-                ctx.bezierCurveTo(this.x + this.size, this.y - this.size / 3, this.x + this.size / 2, topY, this.x, this.y - this.size / 2);
-                ctx.fill();
+                this.drawHeart();
+            } else if (this.type === 'petal') {
+                this.drawPetal();
             } else {
-                // Render elegant 3D shaded falling/twirling flower petal structure
-                ctx.translate(this.x, this.y);
-                ctx.rotate(this.wobble);
-                
-                // Linear gradient layer mapping creates realistic 3D shadow curves across the petals
-                let gradient = ctx.createLinearGradient(-this.size/2, -this.size/2, this.size/2, this.size/2);
-                gradient.addColorStop(0, '#ffffff'); // Glint reflection
-                gradient.addColorStop(0.3, this.color);
-                gradient.addColorStop(1, '#d96b82'); // Dark shaded base edge
-                
-                ctx.fillStyle = gradient;
-                ctx.beginPath();
-                ctx.ellipse(0, 0, this.size * 0.6, this.size * 0.35, 0, 0, 2 * Math.PI);
-                ctx.fill();
+                this.drawSpark();
             }
+
             ctx.restore();
         }
-    }
 
-    function handleParticles() {
-        if (particles.length < 45 && Math.random() < 0.045) {
-            particles.push(new PremiumParticle());
+        drawHeart() {
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = this.color;
+            ctx.beginPath();
+            const topY = this.y - this.size / 2;
+            ctx.moveTo(this.x, this.y);
+            ctx.bezierCurveTo(this.x - this.size / 2, topY, this.x - this.size, this.y - this.size / 3, this.x - this.size, this.y);
+            ctx.bezierCurveTo(this.x - this.size, this.y + this.size / 2, this.x - this.size / 3, this.y + this.size * 0.8, this.x, this.y + this.size);
+            ctx.bezierCurveTo(this.x + this.size / 3, this.y + this.size * 0.8, this.x + this.size, this.y + this.size / 2, this.x + this.size, this.y);
+            ctx.bezierCurveTo(this.x + this.size, this.y - this.size / 3, this.x + this.size / 2, topY, this.x, this.y - this.size / 2);
+            ctx.fill();
         }
 
-        for (let i = particles.length - 1; i >= 0; i--) {
-            particles[i].update();
-            particles[i].draw();
+        drawPetal() {
+            ctx.translate(this.x, this.y);
+            ctx.rotate(this.wobble * 5);
+            let grad = ctx.createLinearGradient(-this.size/2, -this.size/2, this.size/2, this.size/2);
+            grad.addColorStop(0, '#fff');
+            grad.addColorStop(1, this.color);
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.ellipse(0, 0, this.size, this.size/2, 0, 0, Math.PI*2);
+            ctx.fill();
+        }
 
-            if (particles[i].y + particles[i].size < 0 || particles[i].opacity <= 0) {
-                particles.splice(i, 1);
-            }
+        drawSpark() {
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = "#fff";
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, Math.random()*2, 0, Math.PI*2);
+            ctx.fill();
         }
     }
 
-    function renderLoop() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        handleParticles();
-        requestAnimationFrame(renderLoop);
+    for(let i=0; i<60; i++) {
+        particles.push(new MultiParticle());
     }
-    renderLoop();
+
+    function render() {
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        requestAnimationFrame(render);
+    }
+    render();
 })();
