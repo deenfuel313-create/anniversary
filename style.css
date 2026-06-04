@@ -1,58 +1,44 @@
-/* ==========================================================================
-   1. CORE GLOBAL STYLING SETUP
-   ========================================================================== */
+/* Core Structural Resets */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body, html {
-    width: 100%;
-    overflow-x: hidden;
-    background-color: #08060c; /* Deep luxury noir canvas background */
+body {
+    background-color: #050408;
+    color: #ffffff;
     font-family: 'Inter', sans-serif;
-    color: #f0f0f2;
-    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
-/* ==========================================================================
-   2. CINEMATIC 3D WEBGL BACKDROP
-   ========================================================================== */
 #webgl-canvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
+    z-index: 0;
     pointer-events: none;
 }
 
-/* ==========================================================================
-   3. LUXURY EDITORIAL FOREGROUND LAYOUT
-   ========================================================================== */
 #luxury-container {
     position: relative;
+    z-index: 1;
     width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 4%;
-    z-index: 2;
 }
 
-/* Header Plate Styling */
+/* Hero Landing Section */
 .hero-editorial {
+    position: relative;
+    width: 100%;
     height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    position: relative;
+    align-items: center;
     overflow: hidden;
-    background-color: #08060c;
 }
 
-/* This layer pins the video flat to the back wall */
 .hero-video-bg {
     position: absolute;
     top: 50%;
@@ -66,347 +52,200 @@ body, html {
     pointer-events: none;
 }
 
+/* Floating Romance Particle Canvas */
+#romance-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
 .hero-glass-plate {
     position: relative;
     z-index: 2;
-    background: rgba(13, 11, 20, 0.4);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(13, 11, 20, 0.45);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     padding: 60px 80px;
     border-radius: 24px;
     text-align: center;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+}
+
+.gold-accent-tag {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 11px;
+    color: #d4af37;
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
 .editorial-title {
     font-family: 'Cinzel Decorative', serif;
-    font-size: 4.5rem;
-    font-weight: 700;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 1.1;
     letter-spacing: 2px;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #ffffff 30%, #d4af37 100%);
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #ffffff 0%, #e2d9f3 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.editorial-subtitle {
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    letter-spacing: 8px;
-    font-size: 0.95rem;
-    color: #d4af37;
+.editorial-monologue {
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.8;
+    color: #bfaecf;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.luxury-scroll-indicator {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.luxury-scroll-indicator .line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(to bottom, #d4af37, transparent);
+}
+
+.luxury-scroll-indicator .txt {
+    font-size: 10px;
     text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #8c829e;
 }
 
-.luxury-divider {
-    width: 60px;
-    height: 1px;
-    background: #d4af37;
-    margin: 30px auto 0 auto;
-    animation: scaleLine 4s infinite ease-in-out;
+/* Timeline Showcase Grid Layout */
+.editorial-timeline {
+    padding: 140px 10%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 180px;
 }
 
-/* ==========================================================================
-   4. THE PERFECT-FIT GALLERY ARCHITECTURE
-   ========================================================================== */
-
-/* Layout Row Grid Framework */
 .showcase-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 140px;
-    position: relative;
+    gap: 80px;
     width: 100%;
 }
 
-.left-align { flex-direction: row; }
-.right-align { flex-direction: row-reverse; }
+.showcase-row.left-align {
+    flex-direction: row;
+}
 
-/* The Perfect-Fit Luxury Image Frame */
+.showcase-row.right-align {
+    flex-direction: row-reverse;
+}
+
+/* Luxury Image Presentation Frame */
 .image-frame-lux {
-    position: relative;
-    width: 48%;          /* Balances exactly half the screen width on laptops */
-    height: 480px;        /* Golden box height for vertical & horizontal landscape photos */
+    flex: 1;
+    max-width: 550px;
+    border-radius: 20px;
     overflow: hidden;
-    border-radius: 20px;
-    background: radial-gradient(circle, rgba(20, 16, 32, 0.6) 0%, rgba(8, 6, 12, 0.9) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* The Zero-Zoom Clear Fit Image Engine */
-.image-frame-lux img {
-    max-width: 94%;      /* Elegant inner border cushion gap so photos look neatly matted */
-    max-height: 94%;
-    width: auto;         /* Forces the picture to maintain its exact natural dimensions */
-    height: auto;        /* Absolutely zero stretching, vertical squeezing, or crop zoom */
-    object-fit: contain; /* Guarantees the full photo is visible, crisp, and razor-sharp */
-    border-radius: 8px;
-    filter: brightness(0.92) contrast(1.02);
-    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Decorative Framing Lines */
-.frame-border-overlay {
-    position: absolute;
-    top: 3%;
-    left: 3%;
-    right: 3%;
-    bottom: 3%;
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    pointer-events: none;
-    border-radius: 12px;
-    transition: all 0.6s ease;
-}
-
-/* Smooth Interactive Hover Animations */
-.showcase-row:hover .image-frame-lux img {
-    transform: scale(1.03);
-    filter: brightness(1) contrast(1.02);
-}
-
-.showcase-row:hover .frame-border-overlay {
-    border-color: rgba(212, 175, 55, 0.6);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
-}
-
-/* Glassmorphism Text Containers */
-.text-plate-lux {
-    position: relative;
-    width: 44%;          /* Takes up the remaining side layout beautifully */
-    background: rgba(13, 11, 20, 0.5);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
+    background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-    z-index: 3;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.text-plate-lux h2 {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 2.2rem;
+.image-frame-lux:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.image-frame-lux img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    filter: saturate(1.05) contrast(1.02);
+}
+
+/* Typography Content Blocks */
+.narrative-block {
+    flex: 1;
+    max-width: 500px;
+}
+
+.moment-index {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: #d4af37;
+    display: block;
     margin-bottom: 15px;
-    background: linear-gradient(135deg, #ffffff, #d4af37);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
-.text-plate-lux p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #cccccc;
+.moment-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.moment-desc {
+    font-size: 15px;
     font-weight: 300;
+    line-height: 1.8;
+    color: #a59cb5;
 }
 
-/* ==========================================================================
-   5. MASTER MOBILE RESPONSIBLE RESPONSIVE ENGINE (Laptop vs Mobile Fix)
-   ========================================================================== */
+/* Footer Section */
+.luxury-footer {
+    padding: 80px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: #020104;
+}
+
+.footer-signature {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #635b73;
+}
+
+/* Responsive Structural Breakpoints */
 @media (max-width: 968px) {
-    #luxury-container {
-        padding: 0 6%;
-    }
-
-    .hero-glass-plate {
-        padding: 40px 30px;
-        border-radius: 20px;
-    }
-
-    .editorial-title {
-        font-size: 2.8rem;
-    }
-
-    /* Instantly stack layout components vertically into single rows on phones */
-    .showcase-row {
-        flex-direction: column !important; 
-        margin-bottom: 80px;
-        gap: 20px;
-    }
-
-    /* Transform the layout frames to scale beautifully to phone widths */
-    .image-frame-lux {
-        width: 100% !important; 
-        height: 360px !important; /* Perfect phone display landscape box height */
-        border-radius: 16px;
-    }
-
-    .image-frame-lux img {
-        max-width: 96%;
-        max-height: 96%;
-    }
-
-    /* Expand text blocks across phone widths cleanly */
-    .text-plate-lux {
-        width: 100% !important;
-        padding: 30px 20px;
-        border-radius: 16px;
+    .showcase-row.left-align, .showcase-row.right-align {
+        flex-direction: column;
+        gap: 40px;
         text-align: center;
     }
-    
-    .text-plate-lux h2 {
-        font-size: 1.8rem;
+    .image-frame-lux {
+        width: 100%;
+        max-width: 100%;
+    }
+    .hero-glass-plate {
+        padding: 40px 20px;
+    }
+    .editorial-title {
+        font-size: 40px;
+    }
+    .editorial-timeline {
+        padding: 80px 5%;
+        gap: 100px;
     }
 }
-
-/* ==========================================================================
-   6. PREMIUM CREDIT PLATFORM FOOTER
-   ========================================================================== */
-.luxury-footer {
-    display: flex;
-    justify-content: center;
-    padding: 60px 0 100px 0;
-    position: relative;
-    z-index: 2;
-}
-
-.footer-glass-plate {
-    background: rgba(10, 8, 15, 0.4);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    width: 100%;
-}
-
-.footer-title {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 2rem;
-    margin-bottom: 15px;
-    background: linear-gradient(135deg, #ffffff, #d4af37);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.footer-dates {
-    letter-spacing: 4px;
-    font-size: 0.8rem;
-    opacity: 0.5;
-    text-transform: uppercase;
-}
-
-/* Subtle Animated Keyframe System */
-@keyframes scaleLine {
-    0%, 100% { transform: scaleX(1); opacity: 0.6; }
-    50% { transform: scaleX(1.4); opacity: 1; }
-}
-/* ==========================================================================
-   7. ROMANTIC LETTERS & MESSAGES STYLING
-   ========================================================================== */
-#love-letters-section {
-    padding: 60px 0;
-    margin-bottom: 100px;
-    position: relative;
-    z-index: 2;
-}
-
-.section-header-lux {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.letter-section-title {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 2.8rem;
-    background: linear-gradient(135deg, #ffffff, #d4af37);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 10px;
-}
-
-.letter-section-subtitle {
-    font-size: 1rem;
-    font-weight: 300;
-    color: #aaaaaa;
-    letter-spacing: 2px;
-}
-
-.letters-grid-lux {
-    display: flex;
-    justify-content: space-between;
-    gap: 25px;
-    width: 100%;
-}
-
-.letter-card-lux {
-    position: relative;
-    width: 32%;
-    background: rgba(13, 11, 20, 0.4);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    padding: 35px 30px;
-    border-radius: 20px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.letter-card-lux h3 {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: 1.4rem;
-    color: #ffffff;
-    margin-bottom: 15px;
-    margin-top: 5px;
-}
-
-.letter-card-lux p {
-    font-size: 0.98rem;
-    line-height: 1.7;
-    color: #cccccc;
-    font-weight: 300;
-    font-style: italic;
-}
-
-.letter-date {
-    font-size: 0.75rem;
-    color: #d4af37;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    display: block;
-}
-
-.card-border-overlay {
-    position: absolute;
-    top: 4%; left: 4%; right: 4%; bottom: 4%;
-    border: 1px solid rgba(212, 175, 55, 0.08);
-    pointer-events: none;
-    border-radius: 14px;
-    transition: all 0.6s ease;
-}
-
-.letter-card-lux:hover {
-    transform: translateY(-10px);
-    background: rgba(20, 16, 32, 0.55);
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
-}
-
-.letter-card-lux:hover .card-border-overlay {
-    border-color: rgba(212, 175, 55, 0.4);
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.05);
-}
-
-@media (max-width: 968px) {
-    .letters-grid-lux {
-        flex-direction: column !important;
-        gap: 30px;
-    }
-    
-    .letter-card-lux {
-        width: 100% !important;
-        padding: 30px 25px;
-    }
-    
-    .letter-section-title {
-        font-size: 2.2rem;
-    }
-}
-
-
