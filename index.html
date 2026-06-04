@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter II — The Anniversary Exhibit</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Chapter II - The Anniversary Exhibit</title>
+    <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
@@ -13,14 +13,17 @@
     <canvas id="webgl-canvas"></canvas>
 
     <main id="luxury-container">
-        
+
         <header class="hero-editorial">
             <video autoplay loop muted playsinline class="hero-video-bg">
-        <source src="./images/bg-video.mp4" type="video/mp4">
-    </video>
+                <source src="./images/bg-video.mp4" type="video/mp4">
+            </video>
+
+            <canvas id="romance-canvas"></canvas>
+
             <div class="hero-glass-plate">
                 <span class="gold-accent-tag">A Snapchat Story • Two Years In Motion</span>
-                <h1 class="editorial-title">730 Days<br><span class="thin-serif">Of Us</span></h1>
+                <h1 class="editorial-title">730 DAYS<br>OF US</h1>
                 <p class="editorial-monologue">Commemorating the infinite depth of a connection that redefined physical distance. Established 21/22 July 2024.</p>
                 <div class="luxury-scroll-indicator">
                     <span class="line"></span>
@@ -30,196 +33,147 @@
         </header>
 
         <section class="editorial-timeline">
-            
+
             <div class="showcase-row left-align">
                 <div class="image-frame-lux">
-                    <img src="images/meet.jpg" alt="The Spark">
-                    <div class="frame-border-overlay"></div>
+                    <img src="images/meet.jpg" alt="The Beginning">
                 </div>
-                <div class="text-plate-lux">
-                    <span class="chapter-num">01 / 12</span>
-                    <h2>The Spark</h2>
-                    <p class="story-paragraph">That unforgettable moment on Snapchat where two completely separate universes quietly and permanently collided.</p>
+                <div class="narrative-block">
+                    <span class="moment-index">01 / 12</span>
+                    <h2 class="moment-title">Where Fate Began</h2>
+                    <p class="moment-desc">A simple digital notification that quietly evolved into the absolute anchor of my world. One glance, and everything shifted.</p>
                 </div>
             </div>
 
             <div class="showcase-row right-align">
+                <div class="narrative-block">
+                    <span class="moment-index">02 / 12</span>
+                    <h2 class="moment-title">The Anchor of My Days</h2>
+                    <p class="moment-desc">Your smile lighting up my screen makes thousands of miles vanish in an instant. It is my favorite view in the entire universe.</p>
+                </div>
                 <div class="image-frame-lux">
-                    <img src="images/chat.jpg" alt="Endless Texting">
-                    <div class="frame-border-overlay"></div>
-                </div>
-                <div class="text-plate-lux">
-                    <span class="chapter-num">02 / 12</span>
-                    <h2>Endless Texting</h2>
-                    <p class="story-paragraph">From typing simple greetings to unpacking our entire lives, whole worlds built out of silent text bubbles late into the night.</p>
-                </div>
-            </div>
-
-            <div class="showcase-row left-align">
-                <div class="image-frame-lux">
-                    <img src="images/call.jpg" alt="The First Calls">
-                    <div class="frame-border-overlay"></div>
-                </div>
-                <div class="text-plate-lux">
-                    <span class="chapter-num">03 / 12</span>
-                    <h2>The First Calls</h2>
-                    <p class="story-paragraph">When text messages finally transformed into real-time voices, instantly bridging the geographic gap between us.</p>
-                </div>
-            </div>
-
-            <div class="showcase-row right-align">
-                <div class="image-frame-lux">
-                    <img src="images/night.jpg" alt="Late Night Magic">
-                    <div class="frame-border-overlay"></div>
-                </div>
-                <div class="text-plate-lux">
-                    <span class="chapter-num">04 / 12</span>
-                    <h2>Late Night Magic</h2>
-                    <p class="story-paragraph">The quiet, sacred hours of the midnight watch where our deepest vulnerabilities and biggest dreams found a home.</p>
+                    <img src="images/call.jpg" alt="The Call">
                 </div>
             </div>
 
             <div class="showcase-row left-align">
                 <div class="image-frame-lux">
-                    <img src="images/longcall.jpg" alt="Hours on Screen">
-                    <div class="frame-border-overlay"></div>
+                    <img src="images/chat.jpg" alt="Screen to Heart">
                 </div>
-                <div class="text-plate-lux">
-                    <span class="chapter-num">05 / 12</span>
-                    <h2>Hours on Screen</h2>
-                    <p class="story-paragraph">Watching the hours dissolve effortlessly while looking at you, completely detached from the concept of time zones.</p>
+                <div class="narrative-block">
+                    <span class="moment-index">03 / 12</span>
+                    <h2 class="moment-title">Unspoken Comfort</h2>
+                    <p class="moment-desc">Even in quiet, muted moments, your presence fills the room completely. We don't need words to feel entirely connected.</p>
                 </div>
             </div>
 
             <div class="showcase-row right-align">
-                <div class="image-frame-lux">
-                    <img src="images/laugh.jpg" alt="Your Laugh">
-                    <div class="frame-border-overlay"></div>
+                <div class="narrative-block">
+                    <span class="moment-index">04 / 12</span>
+                    <h2 class="moment-title">Sparkle & Grace</h2>
+                    <p class="moment-desc">Radiant, bold, and absolutely mesmerizing. You bring a beautiful, glittering light into my life that nothing else can match.</p>
                 </div>
-                <div class="text-plate-lux">
-                    <span class="chapter-num">06 / 12</span>
-                    <h2>Your Laugh</h2>
-                    <p class="story-paragraph">My absolute favorite frequency in the universe, entirely capable of wiping away a difficult day within a split second.</p>
+                <div class="image-frame-lux">
+                    <img src="images/drunk.jpg" alt="Sparkle and Grace">
                 </div>
             </div>
 
             <div class="showcase-row left-align">
                 <div class="image-frame-lux">
-                    <img src="images/funny.jpg" alt="Inside Jokes">
-                    <div class="frame-border-overlay"></div>
+                    <img src="images/fight.jpg" alt="Playful Moments">
                 </div>
-                <div class="text-plate-lux">
-                    <span class="chapter-num">07 / 12</span>
-                    <h2>Inside Jokes</h2>
-                    <p class="story-paragraph">The raw, unedited, and incredibly goofy side of our bond where we can just drop everything and be kids together.</p>
+                <div class="narrative-block">
+                    <span class="moment-index">05 / 12</span>
+                    <h2 class="moment-title">Our Playful Spark</h2>
+                    <p class="moment-desc">Through every little mood, tease, and playful challenge, you keep my heart racing. I love every single side of your gorgeous personality.</p>
                 </div>
             </div>
 
             <div class="showcase-row right-align">
-                <div class="image-frame-lux">
-                    <img src="images/drunk.jpg" alt="Drunk & Carefree">
-                    <div class="frame-border-overlay"></div>
+                <div class="narrative-block">
+                    <span class="moment-index">06 / 12</span>
+                    <h2 class="moment-title">Deep Reflections</h2>
+                    <p class="moment-desc">In your quiet thoughts and soft glances, I find a calm sanctuary. Looking into your eyes is like looking safely at my future.</p>
                 </div>
-                <div class="text-plate-lux">
-                    <span class="chapter-num">08 / 12</span>
-                    <h2>Drunk & Carefree</h2>
-                    <p class="story-paragraph">The slightly chaotic, blurred, and intensely fun memories that give our grand narrative its wild charm.</p>
+                <div class="image-frame-lux">
+                    <img src="images/forever.jpg" alt="Deep Reflections">
                 </div>
             </div>
 
             <div class="showcase-row left-align">
                 <div class="image-frame-lux">
-                    <img src="images/fight.jpg" alt="Real & Resilient">
-                    <div class="frame-border-overlay"></div>
+                    <img src="images/funny.jpg" alt="Pure Joy">
                 </div>
-                <div class="text-plate-lux">
-                    <span class="chapter-num">09 / 12</span>
-                    <h2>Real & Resilient</h2>
-                    <p class="story-paragraph">Distance is hard, but we fight for each other. Every rough patch has only proved how completely unshakeable we are.</p>
+                <div class="narrative-block">
+                    <span class="moment-index">07 / 12</span>
+                    <h2 class="moment-title">The Sound of Your Laugh</h2>
+                    <p class="moment-desc">That beautiful, candid laugh of yours is the finest melody I have ever heard. It fixes absolutely everything, every single time.</p>
                 </div>
             </div>
 
             <div class="showcase-row right-align">
-                <div class="image-frame-lux">
-                    <img src="images/surprise.jpg" alt="The Surprises">
-                    <div class="frame-border-overlay"></div>
+                <div class="narrative-block">
+                    <span class="moment-index">08 / 12</span>
+                    <h2 class="moment-title">Effortless Elegance</h2>
+                    <p class="moment-desc">You hold a captivating grace that demands attention without even trying. Proud is an understatement when it comes to being yours.</p>
                 </div>
-                <div class="text-plate-lux">
-                    <span class="chapter-num">10 / 12</span>
-                    <h2>The Surprises</h2>
-                    <p class="story-paragraph">Heartwarming, spontaneous gestures that serve as consistent proof that physical separation cannot stop us from caring.</p>
+                <div class="image-frame-lux">
+                    <img src="images/laugh.jpg" alt="Effortless Elegance">
                 </div>
             </div>
 
             <div class="showcase-row left-align">
                 <div class="image-frame-lux">
-                    <img src="images/special.jpg" alt="Something Special">
-                    <div class="frame-border-overlay"></div>
+                    <img src="images/longcall.jpg" alt="Midnight Whispers">
                 </div>
-                <div class="text-plate-lux">
-                    <span class="chapter-num">11 / 12</span>
-                    <h2>Something Special</h2>
-                    <p class="story-paragraph">An invisible, elite frequency of love that words fail to articulate properly. Simply put: you are my home.</p>
+                <div class="narrative-block">
+                    <span class="moment-index">09 / 12</span>
+                    <h2 class="moment-title">Midnight Whispers</h2>
+                    <p class="moment-desc">Falling asleep with you on the line, feeling your heartbeat from across the world. Distance is nothing when two souls are pinned together.</p>
                 </div>
             </div>
 
             <div class="showcase-row right-align">
-                <div class="image-frame-lux">
-                    <img src="images/forever.jpg" alt="Happy Anniversary">
-                    <div class="frame-border-overlay"></div>
+                <div class="narrative-block">
+                    <span class="moment-index">10 / 12</span>
+                    <h2 class="moment-title">Peaceful Serenity</h2>
+                    <p class="moment-desc">Watching you rest peacefully is the most precious reminder of what I protect. My heart guards you safely through every timezone.</p>
                 </div>
-                <div class="text-plate-lux">
-                    <span class="chapter-num">12 / 12</span>
-                    <h2>Happy Anniversary</h2>
-                    <p class="story-paragraph">Cheers to 2 full years of beating the odds, navigating the distance, and building a foundation that lasts forever.</p>
+                <div class="image-frame-lux">
+                    <img src="images/night.jpg" alt="Peaceful Serenity">
+                </div>
+            </div>
+
+            <div class="showcase-row left-align">
+                <div class="image-frame-lux">
+                    <img src="images/special.jpg" alt="The Beautiful Smile">
+                </div>
+                <div class="narrative-block">
+                    <span class="moment-index">11 / 12</span>
+                    <h2 class="moment-title">Pure Magic</h2>
+                    <p class="moment-desc">This specific smile is pure magic. It contains all the warmth, joy, and beauty in the world, wrapped perfectly into one single frame.</p>
+                </div>
+            </div>
+
+            <div class="showcase-row right-align">
+                <div class="narrative-block">
+                    <span class="moment-index">12 / 12</span>
+                    <h2 class="moment-title">To Forever & Beyond</h2>
+                    <p class="moment-desc">Two full years of shared dreams, laughter, and unbreakable devotion. Happy second anniversary, my love. Our finest chapters are yet to come.</p>
+                </div>
+                <div class="image-frame-lux">
+                    <img src="images/surprise.jpg" alt="To Forever">
                 </div>
             </div>
 
         </section>
-</div>
-            </div>
-        </section>
 
-        <section id="love-letters-section">
-            <div class="section-header-lux">
-                <h2 class="letter-section-title">Letters to You</h2>
-                <p class="letter-section-subtitle">Little thoughts, reminders, and promises across the distance</p>
-                <div class="luxury-divider"></div>
-            </div>
-
-            <div class="letters-grid-lux">
-                <div class="letter-card-lux">
-                    <div class="card-border-overlay"></div>
-                    <span class="letter-date">Message #1</span>
-                    <h3>My Favorite Place</h3>
-                    <p>"Even though there are hundreds of miles between us right now, my favorite place in the entire world will always be right next to you. Distance means so little when someone means so much."</p>
-                </div>
-
-                <div class="letter-card-lux">
-                    <div class="card-border-overlay"></div>
-                    <span class="letter-date">Message #2</span>
-                    <h3>Why I Built This</h3>
-                    <p>"I wanted to build a digital space that belongs completely to us—a tiny corner of the internet where our memories can live forever. Every line of code I wrote tonight was typed while thinking of you."</p>
-                </div>
-
-                <div class="letter-card-lux">
-                    <div class="card-border-overlay"></div>
-                    <span class="letter-date">Message #3</span>
-                    <h3>A Promise to You</h3>
-                    <p>"I promise to always show up for you, to listen to you, and to love you IRENEEEE more with each passing day. The distance is temporary, but what we have is permanent. Happy Anniversary, my love."</p>
-                </div>
-            </div>
-        </section>
         <footer class="luxury-footer">
-            <div class="footer-glass-plate">
-        <footer class="luxury-footer">
-            <div class="footer-glass-plate">
-                <h2 class="footer-title">To Infinity & Beyond</h2>
-                <p class="footer-dates">21/22-07-2024 • Phase II Complete</p>
-            </div>
+            <p class="footer-signature">Designed for My Forever • Two-Year Anniversary Exhibition</p>
         </footer>
+
     </main>
 
-    <script src="main.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>
